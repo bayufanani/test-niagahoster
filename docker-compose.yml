@@ -1,0 +1,46 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: bayu
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: landingpage
+    container_name: landingpage-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - landingpage
+
+  db:
+    image: mysql:8.0
+    container_name: landingpage-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - landingpage
+
+  nginx:
+    image: nginx:alpine
+    container_name: landingpage-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./nginx:/etc/nginx/conf.d/
+    networks:
+      - landingpage
+
+networks:
+  landingpage:
+    driver: bridge
