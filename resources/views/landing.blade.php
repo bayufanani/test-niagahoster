@@ -3,7 +3,7 @@
     <section class="has-divider pb-3" id="top-navigation">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-12">
                     <div class="row">
                         <div class="col">
                             <div class="ribbon d-inline-block">
@@ -15,21 +15,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col d-flex justify-content-end pt-3">
+                <div class="col-12 d-flex justify-content-end pt-3">
                     <div class="row">
-                        <div class="col-md-auto">
+                        <div class="col col-md-auto">
                             <span class="material-icons me-2">
                                 call
                             </span>
                             <span>0274-5305505</span>
                         </div>
-                        <div class="col-md-auto">
+                        <div class="col col-md-auto">
                             <span class="material-icons me-2">
                                 question_answer
                             </span>
                             <span>Live Chat</span>
                         </div>
-                        <div class="col-md-auto">
+                        <div class="col col-md-auto">
                             <span class="material-icons me-2">
                                 account_circle
                             </span>
@@ -46,7 +46,12 @@
                 <div class="col">
                     <img src="{{ asset('assets/images/brand.png') }}" alt="brand" srcset="">
                 </div>
-                <div class="col-md-auto d-flex align-items-center">
+                <div class="col-12 d-sm-none">
+                <span class="material-icons">
+                    menu
+                </span>
+                </div>
+                <div class="col-md-auto d-none d-sm-flex align-items-center">
                     <ul>
                         <li><a href="#">Hosting</a></li>
                         <li><a href='#'>Domain</a></li>
@@ -68,7 +73,7 @@
     <section class="has-divider mb-5">
         <div class="container">
             <div class="row montserrat mt-5">
-                <div class="col">
+                <div class="col-12 col-md-6 order-2 order-md-1">
                     <h1 class="bold">PHP Hosting</h1>
                     <h4 class="py-3">Cepat, handal, penuh dengan modul PHP yang Anda butuhkan</h4>
                     <ul>
@@ -96,9 +101,9 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col">
+                <div class="col-12 col-md-6 order-1 order-md-2">
                     <img src="{{ asset('assets/svg/illustration banner PHP hosting-01.svg') }}" alt=""
-                        srcset="">
+                        srcset="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -109,12 +114,12 @@
             <div class="row">
                 <div class="col-10 mx-auto">
                     <div class="row">
-                        <div class="col text-center">
+                        <div class="col-12 col-md-auto text-center">
                             <img src="{{ asset('assets/svg/illustration-banner-PHP-zenguard01.svg') }}" alt="">
                             <p>PHP Zend Guard Loader</p>
                         </div>
-                        <div class="col text-center">PHP Composer</div>
-                        <div class="col text-center">PHP IonCube Loader</div>
+                        <div class="col-12 col-md-auto text-center">PHP Composer</div>
+                        <div class="col-12 col-md-auto text-center">PHP IonCube Loader</div>
                     </div>
                 </div>
             </div>
@@ -146,21 +151,63 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-8 mx-auto">
-                    <div class="row">
-                        <div class="col-6">
-                            <ul class="list-limit">
-                                <li class="text-center has-check">max execution time 300s</li>
-                                <li class="text-center has-check">max execution time 300s</li>
-                                <li class="text-center has-check">php memory limit 1024 MB</li>
-                            </ul>
+                <div class="col-12 col-md-8 mx-auto">
+                    <div class="row limit-list">
+                        <div class="col-12 col-md-6 p-1">
+                            <div class="border">
+                                <div class="d-flex">
+                                    <div style="width: 50px;">
+                                        <span class="material-icons text-green">
+                                            check_circle
+                                        </span>
+                                    </div>
+                                    <div class="col">max execution time 300s</div>
+                                </div>
+                                <div class="d-flex">
+                                    <div style="width: 50px;">
+                                        <span class="material-icons text-green">
+                                            check_circle
+                                        </span>
+                                    </div>
+                                    <div class="col">max execution time 300s</div>
+                                </div>
+                                <div class="d-flex">
+                                    <div style="width: 50px;">
+                                        <span class="material-icons text-green">
+                                            check_circle
+                                        </span>
+                                    </div>
+                                    <div class="col">php memory divmit 1024 MB</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <ul class="list-limit">
-                                <li class="text-center has-check">post max size 128 MB</li>
-                                <li class="text-center has-check">upload max filesize 128 MB</li>
-                                <li class="text-center has-check">max input vars 2500</li>
-                            </ul>
+                        <div class="col-12 col-md-6 p-1">
+                            <div class="border">
+                                <div class="d-flex">
+                                    <div style="width: 50px;">
+                                        <span class="material-icons text-green">
+                                            check_circle
+                                        </span>
+                                    </div>
+                                    <div class="col">post max size 128 MB</div>
+                                </div>
+                                <div class="d-flex">
+                                    <div style="width: 50px;">
+                                        <span class="material-icons text-green">
+                                            check_circle
+                                        </span>
+                                    </div>
+                                    <div class="col">upload max filesize 128 MB</div>
+                                </div>
+                                <div class="d-flex">
+                                    <div style="width: 50px;">
+                                        <span class="material-icons text-green">
+                                            check_circle
+                                        </span>
+                                    </div>
+                                    <div class="col">max input vars 2500</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -176,37 +223,37 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4 text-center my-5">
+                <div class="col-12 col-md-4 text-center my-5">
                     <img src="{{ asset('assets/svg/icon PHP Hosting_PHP Semua Versi.svg') }}" alt=""
                         width="64" class="mb-2">
                     <h5 class="bold">PHP Semua Versi</h5>
                     <p class="roboto">Pilih mulai dari PHP 5.3 s/d PHP 7. Ubah sesuka Anda!</p>
                 </div>
-                <div class="col-4 text-center my-5">
+                <div class="col-12 col-md-4 text-center my-5">
                     <img src="{{ asset('assets/svg/icon PHP Hosting_My SQL.svg') }}" alt="" width="64"
                         class="mb-2">
                     <h5 class="bold">MySQL Versi 5.6</h5>
                     <p class="roboto">Nikmati MySQL versi terbaru, tercepat dan kaya akan fitur.</p>
                 </div>
-                <div class="col-4 text-center my-5">
+                <div class="col-12 col-md-4 text-center my-5">
                     <img src="{{ asset('assets/svg/icon PHP Hosting_CPanel.svg') }}" alt="" width="64"
                         class="mb-2">
                     <h5 class="bold">Panel Hosting cPanel</h5>
                     <p class="roboto">Kelola website dengan panel canggih yang familiar di hari Anda.</p>
                 </div>
-                <div class="col-4 text-center my-5">
+                <div class="col-12 col-md-4 text-center my-5">
                     <img src="{{ asset('assets/svg/icon PHP Hosting_garansi uptime.svg') }}" alt=""
                         width="64" class="mb-2">
                     <h5 class="bold">Garansi Uptime 99.9%</h5>
                     <p class="roboto">Data center yang mendukung kelangsungan website Anda 24/7.</p>
                 </div>
-                <div class="col-4 text-center my-5">
+                <div class="col-12 col-md-4 text-center my-5">
                     <img src="{{ asset('assets/svg/icon PHP Hosting_InnoDB.svg') }}" alt="" width="64"
                         class="mb-2">
                     <h5 class="bold">Database InnoDB Unlimited</h5>
                     <p class="roboto">Jumlah dan ukuran database yang tumbuh sesuai kebutuhan Anda.</p>
                 </div>
-                <div class="col-4 text-center my-5">
+                <div class="col-12 col-md-4 text-center my-5">
                     <img src="{{ asset('assets/svg/icon PHP Hosting_My SQL remote.svg') }}" alt="" width="64"
                         class="mb-2">
                     <h5 class="bold">Wildcard Remote MySQL</h5>
@@ -224,7 +271,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-12 col-md-6 order-2 order-md-1">
                     <p class="mb-3 montserrat">Tak perlu menggunakan dedicated ataupun VPS yang mahal. Layanan PHP hosting
                         murah
                         kami mendukung
@@ -258,9 +305,9 @@
                     </div>
                     <div class="btn btn-primary rounded-pill px-4">Pilih Hosting Anda</div>
                 </div>
-                <div class="col">
+                <div class="col-12 col-md-6 order-1 order-md-2">
                     <img src="{{ asset('assets/svg/illustration banner support laravel hosting.svg') }}" alt=""
-                        srcset="">
+                        srcset="" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -277,7 +324,7 @@
                 <div class="col-10 mx-auto">
                     <div class="row">
                         @foreach ($modules as $module)
-                            <div class="col-3">{{ $module }}</div>
+                            <div class="col-6 col-md-3">{{ $module }}</div>
                         @endforeach
                     </div>
                 </div>
@@ -293,7 +340,7 @@
     <section id="support">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-12 col-md-6 order-2 order-md-1">
                     <h3 class="montserrat mb-3">Linux Hosting yang Stabil dengan Teknologi LVE</h3>
                     <p>SuperMicro <strong>Intel Xeon 24-Core</strong> server dengan RAM <strong>128 GB</strong> dan
                         teknologi
@@ -304,8 +351,8 @@
                     </p>
                     <a href="#" class="btn btn-primary rounded-pill mt-3 px-4">Pilih Hosting Anda</a>
                 </div>
-                <div class="col">
-                    <img src="{{ asset('assets/images/Image support.png') }}" alt="">
+                <div class="col-12 col-md-6 order-1 order-md-2">
+                    <img class="img-fluid" src="{{ asset('assets/images/Image support.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -335,7 +382,7 @@
                     <p class="fs-3 montserrat">Perlu <strong>BANTUAN?</strong> Hubungi Kami: <strong>0274-5305505</strong>
                     </p>
                 </div>
-                <div class="col-3">
+                <div class="col-12 col-md-3 mt-2 mt-md-0">
                     <a href="#" class="btn btn-outline-light rounded-pill px-4 fs-5">
                         <span class="material-icons">
                             question_answer
@@ -350,7 +397,7 @@
     <section id="footer">
         <div class="container">
             <div class="row">
-                <div class="col pt-5 pb-3">
+                <div class="col-6 col-md-3 pt-5 pb-3">
                     <strong>HUBUNGI KAMI</strong>
                     <ul>
                         <li><a href='#'>0274-5305505</a></li>
@@ -363,7 +410,7 @@
                         <li><a href='#'>Yogyakarta 55284</a></li>
                     </ul>
                 </div>
-                <div class="col pt-5 pb-3">
+                <div class="col-6 col-md-3 pt-5 pb-3">
                     <strong>LAYANAN</strong>
                     <ul>
                         <li><a href='#'>Domain</a></li>
@@ -376,7 +423,7 @@
                         <li><a href='#'>Program Affiliasi</a></li>
                     </ul>
                 </div>
-                <div class="col pt-5 pb-3">
+                <div class="col-6 col-md-3 pt-5 pb-3">
                     <strong>SERVICE HOSTING</strong>
                     <ul>
                         <li><a href='#'>Hosting Murah</a></li>
@@ -387,7 +434,7 @@
                         <li><a href='#'>Hosting Laravel</a></li>
                     </ul>
                 </div>
-                <div class="col pt-5 pb-3">
+                <div class="col-6 col-md-3 pt-5 pb-3">
                     <strong>TUTORIAL</strong>
                     <ul>
                         <li><a href='#'>Knowledgebase</a></li>
@@ -397,7 +444,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col pt-5 pb-3">
+                <div class="col-6 col-md-3 pt-5 pb-3">
                     <strong>TENTANG KAMI</strong>
                     <ul>
                         <li><a href='#'>Tim Niagahoster</a></li>
@@ -407,7 +454,7 @@
                         <li><a href='#'>Kontak Kami</a></li>
                     </ul>
                 </div>
-                <div class="col pt-5 pb-3">
+                <div class="col-6 col-md-3 pt-5 pb-3">
                     <strong>KENAPA PILIH NIAGAHOSTER?</strong>
                     <ul>
                         <li><a href='#'>Support Terbaik</a></li>
@@ -417,7 +464,7 @@
                         <li><a href='#'>Review Pelanggan</a></li>
                     </ul>
                 </div>
-                <div class="col pt-5 pb-3">
+                <div class="col-12 col-md-3 pt-5 pb-3">
                     <strong>NEWSLETTER</strong>
                     <div class="input-group bg-white rounded-pill p-1">
                         <input type="text" class="form-control rounded-pill border-0" placeholder="Email"
@@ -427,7 +474,7 @@
                     </div>
                     <p class="text-muted pt-2">Dapatkan promo dan konten menarik dari penyedia hosting terbaik Anda</p>
                 </div>
-                <div class="col pt-5 pb-3">
+                <div class="col-12 col-md-3 pt-5 pb-3">
                     <div class="row mt-5">
                         <div class="col"><span>f</span></div>
                         <div class="col"><span>t</span></div>
@@ -436,7 +483,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col pt-5 pb-3">
+                <div class="col-12 pt-5 pb-3">
                     <p>Pembayaran</p>
                     <img src="" alt="">
                     <small>Aktivasi instan dengan e-Payment Hosting dan domain langsung aktif!</small>
