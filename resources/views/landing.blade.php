@@ -47,9 +47,9 @@
                     <img src="{{ asset('assets/images/brand.png') }}" alt="brand" srcset="">
                 </div>
                 <div class="col-12 d-sm-none">
-                <span class="material-icons">
-                    menu
-                </span>
+                    <span class="material-icons">
+                        menu
+                    </span>
                 </div>
                 <div class="col-md-auto d-none d-sm-flex align-items-center">
                     <ul>
@@ -113,13 +113,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-10 mx-auto">
-                    <div class="row">
-                        <div class="col-12 col-md-auto text-center">
-                            <img src="{{ asset('assets/svg/illustration-banner-PHP-zenguard01.svg') }}" alt="">
+                    <div class="row montserrat">
+                        <div class="col-12 col-md-4 text-center">
+                            <div style="height: 162px" class="d-flex align-items-center justify-content-center">
+                                <img src="{{ asset('assets/svg/illustration-banner-PHP-zenguard01.svg') }}" alt=""
+                                    class="img-fluid">
+                            </div>
                             <p>PHP Zend Guard Loader</p>
                         </div>
-                        <div class="col-12 col-md-auto text-center">PHP Composer</div>
-                        <div class="col-12 col-md-auto text-center">PHP IonCube Loader</div>
+                        <div class="col-12 col-md-4 text-center">
+                            <div style="height: 162px" class="d-flex align-items-center justify-content-center">
+                                <img src="{{ asset('assets/svg/icon-composer.svg') }}" alt="" srcset=""
+                                    class="img-fluid mx-auto">
+                            </div>
+                            <p>PHP Composer</p>
+                        </div>
+                        <div class="col-12 col-md-4 text-center">
+                            <div style="height: 162px" class="d-flex align-items-center justify-content-center">
+                                <img src="{{ asset('assets/svg/icon-php-hosting-ioncube.svg') }}" alt=""
+                                    srcset="" class="img-fluid">
+                            </div>
+                            <p>PHP IonCube Loader</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,17 +143,51 @@
     {{-- paket --}}
     <section id="paket" class="mb-5">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col montserrat">
                     <h3 class="text-center bold">Paket Hosting Singapura yang Tepat</h3>
                     <h4 class="text-center">Diskon 40% + Domain dan SSL Gratis untuk Anda</h4>
                 </div>
             </div>
             <div class="row">
-                <div class="col">Bayi</div>
-                <div class="col">Pelajar</div>
-                <div class="col">Personal</div>
-                <div class="col">Bisnis</div>
+                @foreach ($pakets as $paket)
+                    <div class="col-12 col-sm-6 col-md-3 p-0 overflow-hidden">
+                        <div
+                            class="border text-center montserrat rounded-1 {{ $paket->best_seller ? 'border-primary' : '' }}">
+                            <div class="{{ $paket->best_seller ? '' : 'border-bottom' }} py-2"
+                                style="{{ $paket->best_seller ? 'background-color: #0090eb; color: white' : '' }}">
+                                <h4>{{ $paket->nama }}</h4>
+                            </div>
+                            <div class="border-bottom py-3"
+                                style="{{ $paket->best_seller ? 'background-color: #0090eb; color: white' : '' }}">
+                                <del class="{{ $paket->best_seller ? 'text-white' : 'text-muted' }}" style="">
+                                    Rp. {{ number_format($paket->harga_asli, 0, ',', '.') }}</del>
+                                <p>
+                                    <span class="d-inline-block align-top">Rp. </span>
+                                    <span
+                                        class="d-inline-block align-top fs-1 lh-1 fw-bold">{{ floor($paket->harga_promo / 1000) }}</span>
+                                    <span
+                                        class="d-inline-block align-top">.{{ abs($paket->harga_promo - floor($paket->harga_promo / 1000) * 1000) }}</span>
+                                </p>
+                            </div>
+                            <div class="border-bottom roboto py-2"
+                                style="{{ $paket->best_seller ? 'background-color: #0080dc; color:white;' : '' }}">
+                                <strong>{{ $paket->jumlah_pengguna }}</strong> Pengguna Terdaftar
+                            </div>
+                            <div class="roboto
+                                py-5">
+                                @foreach ($paket->fitur as $fitur)
+                                    <div class="py-1">
+                                        {!! $fitur !!}
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="montserrat py-4">
+                                <button class="btn rounded-pill  btn-primary">Selengkap</button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -254,8 +303,8 @@
                     <p class="roboto">Jumlah dan ukuran database yang tumbuh sesuai kebutuhan Anda.</p>
                 </div>
                 <div class="col-12 col-md-4 text-center my-5">
-                    <img src="{{ asset('assets/svg/icon PHP Hosting_My SQL remote.svg') }}" alt="" width="64"
-                        class="mb-2">
+                    <img src="{{ asset('assets/svg/icon PHP Hosting_My SQL remote.svg') }}" alt=""
+                        width="64" class="mb-2">
                     <h5 class="bold">Wildcard Remote MySQL</h5>
                     <p class="roboto">Mendukung s/d 25 max_user_connections dan 100 max_connections.</p>
                 </div>
@@ -270,7 +319,7 @@
                     <h4 class="montserrat text-center mb-3">Mendukung Penuh Framework Laravel</h4>
                 </div>
             </div>
-            <div class="row">
+            <div class="row pb-2">
                 <div class="col-12 col-md-6 order-2 order-md-1">
                     <p class="mb-3 montserrat">Tak perlu menggunakan dedicated ataupun VPS yang mahal. Layanan PHP hosting
                         murah
@@ -339,7 +388,7 @@
     {{-- support --}}
     <section id="support">
         <div class="container">
-            <div class="row">
+            <div class="row py-2">
                 <div class="col-12 col-md-6 order-2 order-md-1">
                     <h3 class="montserrat mb-3">Linux Hosting yang Stabil dengan Teknologi LVE</h3>
                     <p>SuperMicro <strong>Intel Xeon 24-Core</strong> server dengan RAM <strong>128 GB</strong> dan
@@ -366,9 +415,27 @@
                 </div>
                 <div class="col">
                     <div class="row">
-                        <div class="col">fb</div>
-                        <div class="col">tw</div>
-                        <div class="col">g+</div>
+                        <div class="col-md-auto">
+                            <img src="{{ asset('assets/images/facebook.png') }}" alt="" width="32"
+                                class="d-inline-block">
+                            <div class="number-sosmed d-inline-block align-middle">
+                                80k
+                            </div>
+                        </div>
+                        <div class="col-md-auto">
+                            <img src="{{ asset('assets/images/twitter.png') }}" alt="" width="32"
+                                class="d-inline-block">
+                            <div class="number-sosmed d-inline-block align-middle">
+                                450
+                            </div>
+                        </div>
+                        <div class="col-md-auto">
+                            <img src="{{ asset('assets/images/google-plus.png') }}" alt="" width="32"
+                                class="d-inline-block">
+                            <div class="number-sosmed d-inline-block align-middle">
+                                1900
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -464,7 +531,7 @@
                         <li><a href='#'>Review Pelanggan</a></li>
                     </ul>
                 </div>
-                <div class="col-12 col-md-3 pt-5 pb-3">
+                <div class="col-12 col-sm-6 col-lg-3 pt-5 pb-3">
                     <strong>NEWSLETTER</strong>
                     <div class="input-group bg-white rounded-pill p-1">
                         <input type="text" class="form-control rounded-pill border-0" placeholder="Email"
@@ -476,9 +543,12 @@
                 </div>
                 <div class="col-12 col-md-3 pt-5 pb-3">
                     <div class="row mt-5">
-                        <div class="col"><span>f</span></div>
-                        <div class="col"><span>t</span></div>
-                        <div class="col"><span>g</span></div>
+                        <div class="col"><span><img src="{{ asset('/assets/images/facebook-round.png') }}"
+                                    alt="" srcset=""></span></div>
+                        <div class="col"><span><img src="{{ asset('/assets/images/twitter-round.png') }}"
+                                    alt="" srcset=""></span></div>
+                        <div class="col"><span><img src="{{ asset('/assets/images/google-plus-round.png') }}"
+                                    alt="" srcset=""></span></div>
                     </div>
                 </div>
             </div>

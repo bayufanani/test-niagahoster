@@ -164,3 +164,34 @@ ul>li {
 .limit-list .d-flex {
     padding: .3rem;
 }
+
+.number-sosmed {
+    border: 1px solid #dddddd;
+    padding: .15rem .75rem;
+    border-radius: .2rem;
+    background-color: #f7f7f7;
+    position: relative;
+    margin-left: 5px;
+}
+
+.number-sosmed::after,
+.number-sosmed::before {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+
+    border-right: 5px solid #f7f7f7;
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    left: -5px;
+    top: 30%;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    content: '';
+}
+
+.number-sosmed::before {
+    border-right: 5px solid #dddddd;
+    left: -6px;
+}
