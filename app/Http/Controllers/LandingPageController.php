@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pricing;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -38,94 +39,8 @@ class LandingPageController extends Controller
     }
     private function getPaketsList()
     {
-        $paketList = [
-            [
-                'nama' => 'Bayi',
-                'harga_asli' => 19900,
-                'harga_promo' => 14900,
-                'jumlah_pengguna' => 938,
-                'fitur' => [
-                    '<strong>0.5X RESOURCE POWER</strong>',
-                    '<strong>500 MB</strong> Disk Space',
-                    '<strong>Unlimited</strong> Domain',
-                    '<strong>Unlimited</strong> Datbases',
-                    '<strong>1</strong> Domain',
-                    '<strong>Instant</strong> Backup',
-                    '<strong>Unlimited SSL</strong> Gratis Selamanya'
-                ]
-            ],
-            [
-                'nama' => 'Pelajar',
-                'harga_asli' => 46900,
-                'harga_promo' => 23450,
-                'jumlah_pengguna' => 4168,
-                'fitur' => [
-                    '<strong>1X RESOURCE POWER</strong>',
-                    '<strong>Unlimited</strong> Disk Space',
-                    '<strong>Unlimited</strong> Bandwidth',
-                    '<strong>Unlimited</strong> POP3 Email',
-                    '<strong>Unlimited</strong> Datbases',
-                    '<strong>10</strong> Addon Domain',
-                    '<strong>Instant</strong> Backup',
-                    '<strong>Domain Gratis</strong> Selamanya',
-                    '<strong>Unlimited SSL</strong> Gratis Selamanya'
-                ],
-            ],
-            [
-                'nama' => 'Personal',
-                'harga_asli' => 59900,
-                'harga_promo' => 38900,
-                'jumlah_pengguna' => 10017,
-                'fitur' => [
-                    '<strong>2X RESOURCE POWER</strong>',
-                    '<strong>Unlimited</strong> Disk Space',
-                    '<strong>Unlimited</strong> Bandwidth',
-                    '<strong>Unlimited</strong> POP3 Email',
-                    '<strong>Unlimited</strong> Datbases',
-                    '<strong>Unlimited</strong> Addon Domain',
-                    '<strong>Instant</strong> Backup',
-                    '<strong>Domain Gratis</strong> Selamanya',
-                    '<strong>Unlimited SSL</strong> Gratis Selamanya',
-                    '<strong>Private</strong> Name Server',
-                    '<strong>SpamAssassin</strong> Mail Protection',
-                ],
-            ],
-            [
-                'nama' => 'Bisnis',
-                'harga_asli' => 109900,
-                'harga_promo' => 65900,
-                'jumlah_pengguna' => 3552,
-                'fitur' => [
-                    '<strong>3X RESOURCE POWER</strong>',
-                    '<strong>Unlimited</strong> Disk Space',
-                    '<strong>Unlimited</strong> Bandwidth',
-                    '<strong>Unlimited</strong> POP3 Email',
-                    '<strong>Unlimited</strong> Datbases',
-                    '<strong>Unlimited</strong> Addon Domain',
-                    '<strong>Magic Auto</strong> Backup & Restore',
-                    '<strong>Domain Gratis</strong> Selamanya',
-                    '<strong>Unlimited SSL</strong> Gratis Selamanya',
-                    '<strong>Private</strong> Name Server',
-                    '<strong>Prioritas</strong> Layanan Support',
-                    '<span class="material-icons text-primary">
-                    star
-                    </span>
-                    <span class="material-icons text-primary">
-                    star
-                    </span>
-                    <span class="material-icons text-primary">
-                    star
-                    </span>
-                    <span class="material-icons text-primary">
-                    star
-                    </span>
-                    <span class="material-icons text-primary">
-                    star
-                    </span>',
-                    '<strong>SpamAssassin</strong> Mail Protection',
-                ],
-            ],
-        ];
+        // dd(Pricing::with('fitur')->get());
+        $paketList = Pricing::with('fitur')->get();
         $nilaiTerbesar = 0;
         for ($i = 0; $i < count($paketList); $i++) {
             $paketList[$i]['best_seller'] = false;
@@ -136,7 +51,7 @@ class LandingPageController extends Controller
                     $paketList[$i - 1]['best_seller'] = false;
                 }
             }
-        }
-        return json_decode(json_encode($paketList));
+        };
+        return $paketList;
     }
 }

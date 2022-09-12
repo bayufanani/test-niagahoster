@@ -178,7 +178,7 @@
                                 py-5">
                                 @foreach ($paket->fitur as $fitur)
                                     <div class="py-1">
-                                        {!! $fitur !!}
+                                        {!! $fitur->fitur !!}
                                     </div>
                                 @endforeach
                             </div>
